@@ -9,7 +9,7 @@ const colors = {
   Others: '#a4de6c'
 };
 
-const Chart = ({ data, onBarClick }) => {
+const Chart = ({ data }) => {
   return (
     <ResponsiveContainer width="100%" height={300}>
       <BarChart data={data}>
@@ -17,20 +17,10 @@ const Chart = ({ data, onBarClick }) => {
         <YAxis />
         <Tooltip formatter={(value) => `$${value.toLocaleString()}`} />
         <Legend />
-        {Object.keys(colors).map((key) => (
-          <Bar
-            key={key}
-            dataKey="netWorth"
-            fill={colors[key] || colors['Others']}
-            name={key}
-            isAnimationActive={false}
-            onClick={(bar) => onBarClick && onBarClick(bar.id)} // klik highlight
-          />
-        ))}
+        <Bar dataKey="netWorth" fill="#8884d8" />
       </BarChart>
     </ResponsiveContainer>
   );
 };
-
 
 export default Chart;

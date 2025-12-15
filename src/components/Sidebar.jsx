@@ -1,13 +1,14 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const Sidebar = () => {
   return (
     <aside style={styles.sidebar}>
       <ul style={styles.menu}>
-        <li style={styles.menuItem}>Dashboard</li>
-        <li style={styles.menuItem}>Analytics</li>
-        <li style={styles.menuItem}>Reports</li>
-        <li style={styles.menuItem}>Settings</li>
+        <li style={styles.menuItem}><Link to="/" style={styles.link}>Dashboard</Link></li>
+        <li style={styles.menuItem}><Link to="/analytics" style={styles.link}>Analytics</Link></li>
+        <li style={styles.menuItem}><Link to="/reports" style={styles.link}>Reports</Link></li>
+        <li style={styles.menuItem}><Link to="/settings" style={styles.link}>Settings</Link></li>
       </ul>
     </aside>
   );
@@ -21,16 +22,9 @@ const styles = {
     padding: '20px',
     boxSizing: 'border-box'
   },
-  menu: {
-    listStyle: 'none',
-    padding: 0,
-    margin: 0
-  },
-  menuItem: {
-    padding: '10px 0',
-    cursor: 'pointer',
-    color: '#333'
-  }
+  menu: { listStyle: 'none', padding: 0, margin: 0 },
+  menuItem: { padding: '10px 0' },
+  link: { textDecoration: 'none', color: 'inherit' }
 };
 
 export default Sidebar;

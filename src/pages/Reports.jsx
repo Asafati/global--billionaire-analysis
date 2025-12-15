@@ -1,12 +1,9 @@
-import React from "react";
-
-const Reports = () => {
-  return (
-    <div className="p-6">
-      <h1 className="text-2xl font-bold mb-4">Reports</h1>
-      <p>Ini halaman Reports. Kontennya bisa ditambah nanti.</p>
-    </div>
-  );
-};
+// Reports.jsx
+const Reports = () => (
+  <div className="p-6">
+    <h1 className="text-2xl font-bold mb-4">Reports</h1>
+    <p>Ini halaman Reports. Kontennya bisa ditambah nanti.</p>
+  </div>
+);
 
 export default Reports;

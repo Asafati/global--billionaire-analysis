@@ -1,12 +1,10 @@
 import React from 'react';
 
-const Navbar = () => {
-  return (
-    <nav style={styles.navbar}>
-      <h1 style={styles.title}>Global Billionaire Wealth Analysis</h1>
-    </nav>
-  );
-};
+const Navbar = () => (
+  <nav style={styles.navbar}>
+    <h1 style={styles.title}>Global Billionaire Wealth Analysis</h1>
+  </nav>
+);
 
 const styles = {
   navbar: {
@@ -18,10 +16,7 @@ const styles = {
     padding: '0 20px',
     boxShadow: '0 2px 4px rgba(0,0,0,0.1)'
   },
-  title: {
-    margin: 0,
-    fontSize: '1.5rem'
-  }
+  title: { margin: 0, fontSize: '1.5rem' }
 };
 
 export default Navbar;
