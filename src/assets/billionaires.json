@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "name": "Elon Musk",
+    "netWorth": 219000000000,
+    "country": "USA",
+    "industry": "Technology"
+  },
+  {
+    "id": 2,
+    "name": "Jeff Bezos",
+    "netWorth": 171000000000,
+    "country": "USA",
+    "industry": "E-commerce"
+  },
+  {
+    "id": 3,
+    "name": "Bernard Arnault",
+    "netWorth": 158000000000,
+    "country": "France",
+    "industry": "Luxury Goods"
+  }
+]
