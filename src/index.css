@@ -11,7 +11,7 @@
   --primary-color-hover: #535bf2;
   --button-bg-dark: #1a1a1a;
   --button-bg-light: #d5dce4;
-   max-width: 1280px;
+  max-width: 1280px;
   width: 100%;
   padding: 1rem;
 }
@@ -22,6 +22,9 @@
   padding: 0;
 }
 
+/* ===============================
+   Body Styles
+================================ */
 body {
   font-family: var(--font-family-base);
   line-height: 1.5;
@@ -41,6 +44,22 @@ body {
 }
 
 /* ===============================
+   Dark Mode using .dark class
+================================ */
+body.dark {
+  color: var(--font-color-light);
+  background-color: var(--bg-color-dark);
+}
+
+/* ===============================
+   Light Mode Support
+================================ */
+body:not(.dark) {
+  color: var(--font-color-light);
+  background-color: var(--bg-color-light);
+}
+
+/* ===============================
    Links
 ================================ */
 a {
@@ -52,20 +71,6 @@ a {
 
 a:hover {
   color: var(--primary-color-hover);
-}
-
-/* ===============================
-   Headings
-================================ */
-h1, h2, h3, h4, h5, h6 {
-  font-family: var(--font-family-base);
-  font-weight: 600;
-}
-
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
-  margin-bottom: 1rem;
 }
 
 /* ===============================
@@ -95,25 +100,6 @@ button:focus-visible {
 }
 
 /* ===============================
-   Light Mode Support
-================================ */
-@media (prefers-color-scheme: light) {
-  body {
-    color: var(--font-color-light);
-    background-color: var(--bg-color-light);
-  }
-
-  a:hover {
-    color: #747bff;
-  }
-
-  button {
-    background-color: var(--button-bg-light);
-    color: var(--font-color-light);
-  }
-}
-
-/* ===============================
    Utility & Layout Enhancements
 ================================ */
 #root {
@@ -121,4 +107,3 @@ button:focus-visible {
   width: 100%;
   padding: 2rem;
 }
-

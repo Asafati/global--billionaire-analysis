@@ -1,4 +1,3 @@
-/** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [
     "./index.html",
@@ -7,5 +6,6 @@ module.exports = {
   theme: {
     extend: {},
   },
+  darkMode: 'class', // Ini yang sudah benar
   plugins: [],
-}
+};
