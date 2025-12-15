@@ -16,12 +16,13 @@ const Sidebar = () => {
 
 const styles = {
   sidebar: {
-    width: '200px',
+    width: '250px', // ubah dari 200px ke 250px
     backgroundColor: '#f0f2f5',
     height: 'calc(100vh - 60px)',
     padding: '20px',
-    boxSizing: 'border-box'
+    boxSizing: 'border-box',
   },
+
   menu: { listStyle: 'none', padding: 0, margin: 0 },
   menuItem: { padding: '10px 0' },
   link: { textDecoration: 'none', color: 'inherit' }
