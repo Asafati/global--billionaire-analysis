@@ -6,8 +6,8 @@ import Navbar from '../components/Navbar';  // Menggunakan Navbar yang baru
 const Settings = () => (
   <Layout>
     <div className="p-6">
-      <h1 className="text-2xl font-bold mb-4">Settings</h1>
-      <p>Ini halaman Settings. Kontennya bisa ditambah nanti.</p>
+      <h1 className="text-2xl font-bold mb-4">Pengaturan</h1>
+      <p>Ini adalah halaman Pengaturan. Kontennya dapat ditambahkan nanti.</p>
     </div>
   </Layout>
 );

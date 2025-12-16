@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 import { Rocket, Building2, Scale, TrendingUp, Brain } from "lucide-react";
 
 /* ======================
-   SIMPLE UI COMPONENTS
+   KOMPONEN UI SEDERHANA
 ====================== */
 
 const Card = ({ children }) => (
@@ -23,10 +23,12 @@ const Badge = ({ children }) => (
   </span>
 );
 
-const Separator = () => <div className="my-8 border-t border-gray-200 dark:border-neutral-700" />;
+const Separator = () => (
+  <div className="my-8 border-t border-gray-200 dark:border-neutral-700" />
+);
 
 /* ======================
-   SECTION COMPONENT
+   KOMPONEN SECTION
 ====================== */
 
 const Section = ({ title, subtitle, children }) => (
@@ -37,13 +39,17 @@ const Section = ({ title, subtitle, children }) => (
     className="mb-8"
   >
     <h2 className="text-2xl font-semibold mb-2">{title}</h2>
-    {subtitle && <p className="text-sm text-gray-600 dark:text-gray-400 mb-4">{subtitle}</p>}
+    {subtitle && (
+      <p className="text-sm text-gray-600 dark:text-gray-400 mb-4">
+        {subtitle}
+      </p>
+    )}
     {children}
   </motion.section>
 );
 
 /* ======================
-   PROFILE CARD
+   KARTU PROFIL
 ====================== */
 
 const ProfileCard = ({ icon: Icon, name, role, points }) => (
@@ -68,11 +74,12 @@ const ProfileCard = ({ icon: Icon, name, role, points }) => (
 );
 
 /* ======================
-   MAIN PAGE
+   HALAMAN UTAMA
 ====================== */
 
 const Reports = () => {
   return (
+    <Layout>
     <main className="flex-1 p-6 md:p-10 max-w-7xl mx-auto">
       <motion.div
         initial={{ opacity: 0 }}
@@ -80,36 +87,40 @@ const Reports = () => {
         transition={{ duration: 0.8 }}
       >
         <h1 className="text-4xl font-extrabold mb-4 text-gray-900 dark:text-gray-100">
-          Strategic Public Figures Report
+          Laporan Strategis Tokoh Publik
         </h1>
         <p className="text-gray-500 dark:text-gray-400 mb-10">
-          Analisis profesional berbasis data publik terhadap tokoh global, nasional, dan regional.
+          Analisis profesional berbasis data publik terhadap tokoh global,
+          nasional, dan regional.
         </p>
 
-        {/* EXECUTIVE SUMMARY */}
+        {/* RINGKASAN EKSEKUTIF */}
         <Section title="Ringkasan Eksekutif">
           <Card>
             <CardContent>
               <p>
-                Laporan ini mengkaji tiga figur dengan skala pengaruh berbeda: <b>Elon Musk</b> (global–teknologi),{" "}
-                <b>Prajogo Pangestu</b> (nasional–industri & energi), dan <b>Marinus Gea</b> (legislatif–kebijakan publik).
-                Ketiganya merepresentasikan pendekatan kepemimpinan, inovasi, dan dampak sosial-ekonomi yang berbeda namun saling melengkapi.
+                Laporan ini mengkaji tiga figur dengan skala pengaruh berbeda:
+                <b> Elon Musk</b> (global – teknologi),
+                <b> Prajogo Pangestu</b> (nasional – industri & energi), dan
+                <b> Marinus Gea</b> (legislatif – kebijakan publik).
+                Ketiganya merepresentasikan pendekatan kepemimpinan, inovasi,
+                serta dampak sosial-ekonomi yang berbeda namun saling melengkapi.
               </p>
             </CardContent>
           </Card>
         </Section>
 
-        {/* PROFILES */}
+        {/* PROFIL TOKOH */}
         <Section title="Profil Utama Tokoh">
           <div className="grid md:grid-cols-3 gap-6">
             <ProfileCard
               icon={Rocket}
               name="Elon Musk"
-              role="Global Technology Leader"
+              role="Pemimpin Teknologi Global"
               points={[
-                "CEO Tesla & SpaceX",
-                "Pelopor kendaraan listrik & eksplorasi Mars",
-                "Berpengaruh besar di AI, energi, dan media digital",
+                "CEO Tesla dan SpaceX",
+                "Pelopor kendaraan listrik dan eksplorasi Mars",
+                "Berpengaruh besar dalam AI, energi, dan media digital",
               ]}
             />
             <ProfileCard
@@ -118,7 +129,7 @@ const Reports = () => {
               role="Konglomerat Industri Indonesia"
               points={[
                 "Pendiri Barito Pacific Group",
-                "Fokus petrokimia & energi geothermal",
+                "Fokus pada petrokimia dan energi panas bumi",
                 "Orang terkaya di Indonesia (2024–2025)",
               ]}
             />
@@ -127,16 +138,16 @@ const Reports = () => {
               name="Marinus Gea"
               role="Anggota DPR RI"
               points={[
-                "Legislator 3 periode (PDI Perjuangan)",
-                "Fokus hukum, UMKM & perlindungan korban",
+                "Legislator tiga periode (PDI Perjuangan)",
+                "Fokus pada hukum, UMKM, dan perlindungan korban",
                 "Tokoh nasional asal Kepulauan Nias",
               ]}
             />
           </div>
         </Section>
 
-        {/* TIMELINE */}
-        <Section title="Timeline Dampak">
+        {/* LINIMASA */}
+        <Section title="Linimasa Dampak">
           <Card>
             <CardContent className="grid md:grid-cols-3 gap-6">
               <div>
@@ -156,14 +167,14 @@ const Reports = () => {
               <div>
                 <h4 className="font-semibold">Marinus Gea</h4>
                 <p>2000–2013: Dunia usaha</p>
-                <p>2014–2019: DPR RI periode I</p>
-                <p>2020–2025: Legislasi & advokasi</p>
+                <p>2014–2019: DPR RI periode pertama</p>
+                <p>2020–2025: Legislasi dan advokasi</p>
               </div>
             </CardContent>
           </Card>
         </Section>
 
-        {/* ANALYSIS */}
+        {/* ANALISIS */}
         <Section title="Analisis Strategis">
           <div className="grid md:grid-cols-2 gap-6">
             <Card>
@@ -172,8 +183,10 @@ const Reports = () => {
                   <Brain size={16} /> Pola Kepemimpinan
                 </h4>
                 <p>
-                  Elon Musk menonjol dengan inovasi disruptif, Prajogo Pangestu dengan konsolidasi industri dan efisiensi
-                  modal, sementara Marinus Gea berperan dalam stabilitas kebijakan dan representasi publik.
+                  Elon Musk menonjol melalui inovasi disruptif, Prajogo Pangestu
+                  melalui konsolidasi industri dan efisiensi modal, sementara
+                  Marinus Gea berperan dalam stabilitas kebijakan dan
+                  representasi publik.
                 </p>
               </CardContent>
             </Card>
@@ -181,10 +194,11 @@ const Reports = () => {
             <Card>
               <CardContent>
                 <h4 className="font-semibold flex items-center gap-2">
-                  <TrendingUp size={16} /> Dampak Sosial & Ekonomi
+                  <TrendingUp size={16} /> Dampak Sosial dan Ekonomi
                 </h4>
                 <p>
-                  Ketiganya menciptakan nilai berkelanjutan: dari kapitalisasi pasar global, investasi nasional, hingga
+                  Ketiganya menciptakan nilai berkelanjutan, mulai dari
+                  kapitalisasi pasar global, investasi nasional, hingga
                   perlindungan masyarakat melalui regulasi.
                 </p>
               </CardContent>
@@ -194,27 +208,29 @@ const Reports = () => {
 
         <Separator />
 
-        {/* CONCLUSION */}
+        {/* KESIMPULAN */}
         <Section title="Kesimpulan">
           <Card>
             <CardContent>
               <p>
-                Laporan ini menunjukkan bahwa kepemimpinan efektif tidak selalu berasal dari satu sektor. Inovasi, industri,
-                dan kebijakan publik saling melengkapi dalam membentuk masa depan ekonomi dan sosial.
+                Laporan ini menunjukkan bahwa kepemimpinan yang efektif tidak
+                selalu berasal dari satu sektor. Inovasi, industri, dan
+                kebijakan publik saling melengkapi dalam membentuk masa depan
+                ekonomi dan sosial.
               </p>
 
               <div className="mt-4 flex gap-2 flex-wrap">
-                <Badge>Public Data</Badge>
-                <Badge>Strategic Analysis</Badge>
-                <Badge>Professional Report</Badge>
+                <Badge>Data Publik</Badge>
+                <Badge>Analisis Strategis</Badge>
+                <Badge>Laporan Profesional</Badge>
               </div>
             </CardContent>
           </Card>
         </Section>
       </motion.div>
     </main>
+    </Layout>
   );
 };
 
 export default Reports;
-  

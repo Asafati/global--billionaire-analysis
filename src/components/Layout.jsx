@@ -1,51 +1,54 @@
 import React, { useState } from "react";
-import Navbar from "../components/Navbar";  // Navbar yang sudah disesuaikan
-import Sidebar from "../components/Sidebar"; // Sidebar yang sudah disesuaikan
+import Navbar from "../components/Navbar";
+import Sidebar from "../components/Sidebar";
 
 const Layout = ({ children }) => {
   const [isSidebarOpen, setSidebarOpen] = useState(true);
   const [darkMode, setDarkMode] = useState(false);
 
-  // Gaya untuk root div, mengaktifkan dark mode ketika darkMode = true
-  const rootClass = darkMode ? "dark flex flex-col h-screen" : "flex flex-col h-screen";
-
   return (
-    <div className={rootClass}>
-      {/* Navbar */}
-      <Navbar toggleSidebar={() => setSidebarOpen(!isSidebarOpen)} />
+    <div className={`${darkMode ? "dark" : ""} h-screen overflow-hidden`}>
+      
+      {/* NAVBAR — FIXED */}
+      <header className="fixed top-0 left-0 right-0 z-50">
+        <Navbar toggleSidebar={() => setSidebarOpen(!isSidebarOpen)} />
+      </header>
 
-      {/* Mobile sidebar toggle */}
-      <div
-        className="md:hidden p-2 bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-gray-200 cursor-pointer"
-        onClick={() => setSidebarOpen(!isSidebarOpen)}
-      >
-        ☰
-      </div>
-
-      {/* Main layout structure */}
-      <div className="flex flex-1 overflow-hidden">
-        {/* Sidebar */}
+      <div className="flex pt-14 h-full">
+        
+        {/* SIDEBAR — FIXED */}
         <aside
-          className={`transition-all bg-gray-800 text-white md:w-64 w-full md:block ${isSidebarOpen ? "block" : "hidden"}`}
-          style={{ boxShadow: "0px 4px 10px rgba(0, 0, 0, 0.1)" }}
+          className={`fixed top-14 left-0 h-[calc(100vh-3.5rem)]
+          bg-gray-800 text-white w-64
+          transition-transform duration-300
+          ${isSidebarOpen ? "translate-x-0" : "-translate-x-full"}
+          md:translate-x-0 z-40`}
         >
           <Sidebar />
         </aside>
 
-        {/* Main content */}
-        <main className="flex-1 p-6 overflow-auto bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-100">
+        {/* MAIN CONTENT — SCROLLABLE */}
+        <main
+          className="
+            flex-1 ml-0 md:ml-64
+            mt-14
+            overflow-y-auto
+            bg-gray-50 dark:bg-gray-900
+            text-gray-900 dark:text-gray-100
+            p-6
+          "
+        >
           {/* Dark mode toggle */}
           <div className="flex justify-end mb-4">
             <button
-              className="bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-gray-200 px-3 py-1 rounded"
+              className="bg-gray-200 dark:bg-gray-700 px-3 py-1 rounded text-sm"
               onClick={() => setDarkMode(!darkMode)}
             >
-              {darkMode ? "Light Mode" : "Dark Mode"}
+              {darkMode ? "Mode Terang" : "Mode Gelap"}
             </button>
           </div>
 
-          {/* Main content children */}
-          <div className="container mx-auto">{children}</div>
+          {children}
         </main>
       </div>
     </div>

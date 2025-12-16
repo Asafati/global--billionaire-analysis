@@ -1,109 +1,191 @@
-/* ===============================
-   Global Root & Theme Variables
-================================ */
+/* =====================================================
+   DESIGN SYSTEM — GLOBAL VARIABLES
+===================================================== */
 :root {
-  --font-family-base: system-ui, Avenir, Helvetica, Arial, sans-serif;
-  --font-color-dark: rgba(64, 20, 159, 0.87);
-  --font-color-light: #213547;
-  --bg-color-dark: #242424;
-  --bg-color-light: #ffffff;
-  --primary-color: #646cff;
-  --primary-color-hover: #535bf2;
-  --button-bg-dark: #1a1a1a;
-  --button-bg-light: #d5dce4;
-  max-width: 1280px;
-  width: 100%;
-  padding: 1rem;
+  /* Typography */
+  --font-sans: system-ui, -apple-system, BlinkMacSystemFont,
+    "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+
+  /* Brand Colors */
+  --color-primary: #3b82f6;        /* Blue 500 */
+  --color-primary-hover: #2563eb;  /* Blue 600 */
+  --color-accent: #6366f1;         /* Indigo */
+
+  /* Neutral Palette */
+  --gray-50: #f9fafb;
+  --gray-100: #f3f4f6;
+  --gray-200: #e5e7eb;
+  --gray-300: #d1d5db;
+  --gray-500: #6b7280;
+  --gray-700: #374151;
+  --gray-800: #1f2933;
+  --gray-900: #111827;
+
+  /* Light Theme */
+  --bg-light: #ffffff;
+  --text-light: #1f2937;
+  --card-light: #ffffff;
+  --border-light: var(--gray-200);
+
+  /* Dark Theme */
+  --bg-dark: #0f172a;
+  --text-dark: #e5e7eb;
+  --card-dark: #020617;
+  --border-dark: #1e293b;
+
+  /* UI */
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 14px;
+
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.04);
+  --shadow-md: 0 4px 14px rgba(0, 0, 0, 0.08);
+  --shadow-lg: 0 10px 25px rgba(0, 0, 0, 0.12);
+
+  --transition-fast: 0.2s ease;
+  --transition-normal: 0.3s ease;
 }
 
-* {
+/* =====================================================
+   RESET & BASE
+===================================================== */
+*,
+*::before,
+*::after {
   box-sizing: border-box;
+}
+
+html,
+body {
   margin: 0;
   padding: 0;
+  height: 100%;
 }
 
-/* ===============================
-   Body Styles
-================================ */
 body {
-  font-family: var(--font-family-base);
-  line-height: 1.5;
-  font-weight: 400;
-  color-scheme: light dark;
-  color: var(--font-color-dark);
-  background-color: var(--bg-color-dark);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: flex-start;
-  min-width: 320px;
-  min-height: 100vh;
+  font-family: var(--font-sans);
+  font-size: 16px;
+  line-height: 1.6;
+  background-color: var(--bg-light);
+  color: var(--text-light);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-rendering: optimizeLegibility;
 }
 
-/* ===============================
-   Dark Mode using .dark class
-================================ */
-body.dark {
-  color: var(--font-color-light);
-  background-color: var(--bg-color-dark);
+/* =====================================================
+   DARK MODE (via .dark on html/body)
+===================================================== */
+.dark body {
+  background-color: var(--bg-dark);
+  color: var(--text-dark);
 }
 
-/* ===============================
-   Light Mode Support
-================================ */
-body:not(.dark) {
-  color: var(--font-color-light);
-  background-color: var(--bg-color-light);
+/* =====================================================
+   ROOT APP CONTAINER
+===================================================== */
+#root {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
 }
 
-/* ===============================
-   Links
-================================ */
+/* =====================================================
+   LINKS
+===================================================== */
 a {
-  font-weight: 500;
-  color: var(--primary-color);
+  color: var(--color-primary);
   text-decoration: none;
-  transition: color 0.2s;
+  font-weight: 500;
+  transition: color var(--transition-fast);
 }
 
 a:hover {
-  color: var(--primary-color-hover);
+  color: var(--color-primary-hover);
 }
 
-/* ===============================
-   Buttons
-================================ */
+/* =====================================================
+   BUTTONS — PROFESSIONAL
+===================================================== */
 button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
   font-family: inherit;
-  background-color: var(--button-bg-dark);
-  color: var(--font-color-dark);
+  font-size: 0.875rem;
+  padding: 0.55rem 1.1rem;
+  border-radius: var(--radius-md);
+  border: 1px solid transparent;
   cursor: pointer;
-  transition: all 0.25s;
+  background-color: var(--color-primary);
+  color: #ffffff;
+  transition: all var(--transition-fast);
 }
 
 button:hover {
-  border-color: var(--primary-color);
-  transform: translateY(-2px);
+  background-color: var(--color-primary-hover);
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-sm);
 }
 
-button:focus,
+button:active {
+  transform: translateY(0);
+}
+
 button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
+  outline: 3px solid rgba(59, 130, 246, 0.4);
 }
 
-/* ===============================
-   Utility & Layout Enhancements
-================================ */
-#root {
+/* =====================================================
+   CARDS
+===================================================== */
+.card {
+  background-color: var(--card-light);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border-light);
+  box-shadow: var(--shadow-sm);
+  padding: 1.25rem;
+  transition: box-shadow var(--transition-normal);
+}
+
+.dark .card {
+  background-color: var(--card-dark);
+  border-color: var(--border-dark);
+}
+
+.card:hover {
+  box-shadow: var(--shadow-md);
+}
+
+/* =====================================================
+   SCROLLBAR (Desktop polish)
+===================================================== */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: var(--gray-300);
+  border-radius: 999px;
+}
+
+.dark ::-webkit-scrollbar-thumb {
+  background-color: var(--gray-700);
+}
+
+/* =====================================================
+   UTILITIES
+===================================================== */
+.container {
   max-width: 1280px;
-  width: 100%;
-  padding: 2rem;
+  margin: 0 auto;
+  padding: 1.5rem;
+}
+
+.text-muted {
+  color: var(--gray-500);
+}
+
+.dark .text-muted {
+  color: var(--gray-300);
 }
